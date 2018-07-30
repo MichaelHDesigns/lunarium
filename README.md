@@ -30,7 +30,7 @@ Rebrand from Solarium (SLRC) to Lunarium (XLN)
 
 <table>
 <th>From Block</th><th>Reward</th><th>Masternodes</th><th>Stakers</th>
-<tr><td>2</td><td>0.001 XLN</td><td>0.0007 XLN</td><td>0.00003 XLN</td></tr>
+<tr><td>2</td><td>0.0001 XLN</td><td>0.00007 XLN</td><td>0.00003 XLN</td></tr>
 <tr><td>30,002</td><td>10 XLN</td><td>7 XLN</td><td>3 XLN</td></tr>
 <tr><td>555,602</td><td>9 XLN</td><td>6.3 XLN</td><td>2.7 XLN</td></tr>
 <tr><td>1,081,20</td><td>8 XLN</td><td>5.6 XLN</td><td>2.4 XLN</td></tr>
