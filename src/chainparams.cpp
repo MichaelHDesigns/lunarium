@@ -144,8 +144,8 @@ public:
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 400;
-        nModifierUpdateBlock = 468744;
-        nZerocoinStartHeight = 1;
+        nModifierUpdateBlock = 500;
+        nZerocoinStartHeight = 600;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
