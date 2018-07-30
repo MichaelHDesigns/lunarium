@@ -126,7 +126,7 @@ public:
 };
 
 /**
- * Phore RPC command dispatcher.
+ * Lunarium RPC command dispatcher.
  */
 class CRPCTable
 {

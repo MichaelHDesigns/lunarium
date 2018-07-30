@@ -1,31 +1,31 @@
 #!/bin/bash
 #
-#  phored The Phore core server.
+#  lunariumd The Lunarium core server.
 #
 #
 # chkconfig: 345 80 20
-# description: phored
-# processname: phored
+# description: lunariumd
+# processname: lunariumd
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/phored, see below
-if [ -f /etc/sysconfig/phored ]; then
-        . /etc/sysconfig/phored
+# you can override defaults in /etc/sysconfig/lunariumd, see below
+if [ -f /etc/sysconfig/lunariumd ]; then
+        . /etc/sysconfig/lunariumd
 fi
 
 RETVAL=0
 
-prog=phored
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/phored
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/phored}
+prog=lunariumd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/lunariumd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/lunariumd}
 
-# phored defaults to /usr/bin/phored, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/phored}
+# lunariumd defaults to /usr/bin/lunariumd, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/lunariumd}
 
-# phored opts default to -disablewallet, override with BITCOIND_OPTS
+# lunariumd opts default to -disablewallet, override with BITCOIND_OPTS
 bitcoind_opts=${BITCOIND_OPTS}
 
 start() {

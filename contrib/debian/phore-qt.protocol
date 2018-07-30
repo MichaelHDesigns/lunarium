@@ -1,6 +1,6 @@
 [Protocol]
-exec=phore-qt '%u'
-protocol=phore
+exec=lunarium-qt '%u'
+protocol=lunarium
 input=none
 output=none
 helper=true

@@ -1,19 +1,19 @@
 [Unit]
-Description=Phore's distributed currency daemon
+Description=Lunarium's distributed currency daemon
 After=network.target
 
 [Service]
-User=phore
-Group=phore
+User=lunarium
+Group=lunarium
 
 Type=forking
-PIDFile=/var/lib/phored/phored.pid
+PIDFile=/var/lib/lunariumd/lunariumd.pid
 
-ExecStart=/usr/bin/phored -daemon -pid=/var/lib/phored/phored.pid \
-          -conf=/etc/phore/phore.conf -datadir=/var/lib/phored
+ExecStart=/usr/bin/lunariumd -daemon -pid=/var/lib/lunariumd/lunariumd.pid \
+          -conf=/etc/lunarium/lunarium.conf -datadir=/var/lib/lunariumd
 
-ExecStop=-/usr/bin/phore-cli -conf=/etc/phore/phore.conf \
-         -datadir=/var/lib/phored stop
+ExecStop=-/usr/bin/lunarium-cli -conf=/etc/lunarium/lunarium.conf \
+         -datadir=/var/lib/lunariumd stop
 
 Restart=always
 PrivateTmp=true

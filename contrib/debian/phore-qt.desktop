@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Phore
-Comment=Phore P2P Cryptocurrency
-Comment[fr]=Phore, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Phore, eşten eşe kriptografik sanal para birimi
-Exec=phore-qt %u
+Name=Lunarium
+Comment=Lunarium P2P Cryptocurrency
+Comment[fr]=Lunarium, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Lunarium, eşten eşe kriptografik sanal para birimi
+Exec=lunarium-qt %u
 Terminal=false
 Type=Application
-Icon=phore128
-MimeType=x-scheme-handler/phore;
+Icon=lunarium128
+MimeType=x-scheme-handler/lunarium;
 Categories=Office;Finance;

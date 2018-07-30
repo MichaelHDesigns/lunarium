@@ -1,25 +1,25 @@
-# /etc/conf.d/phored: config file for /etc/init.d/phored
+# /etc/conf.d/lunariumd: config file for /etc/init.d/lunariumd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/phore/phore.conf"
+#BITCOIND_CONFIGFILE="/etc/lunarium/lunarium.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/phored"
+#BITCOIND_PIDDIR="/var/run/lunariumd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/phored.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/lunariumd.pid"
 
-# Where to write phored data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/phored"
+# Where to write lunariumd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/lunariumd"
 
-# User and group to own phored process
-#BITCOIND_USER="phore"
-#BITCOIND_GROUP="phore"
+# User and group to own lunariumd process
+#BITCOIND_USER="lunarium"
+#BITCOIND_GROUP="lunarium"
 
-# Path to phored executable
-#BITCOIND_BIN="/usr/bin/phored"
+# Path to lunariumd executable
+#BITCOIND_BIN="/usr/bin/lunariumd"
 
-# Nice value to run phored under
+# Nice value to run lunariumd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: phored.service
-Upstart: phored.conf
-OpenRC:  phored.openrc
-         phored.openrcconf
-CentOS:  phored.init
+SystemD: lunariumd.service
+Upstart: lunariumd.conf
+OpenRC:  lunariumd.openrc
+         lunariumd.openrcconf
+CentOS:  lunariumd.init
 
 have been made available to assist packagers in creating node packages here.
 
