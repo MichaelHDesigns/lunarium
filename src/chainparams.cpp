@@ -144,7 +144,7 @@ public:
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 400;
-        nModifierUpdateBlock = 500;
+        // nModifierUpdateBlock = 500; //shouldn't be needed for Lunarium
         nZerocoinStartHeight = 600;
 
         /**
@@ -252,7 +252,7 @@ public:
         nTargetSpacing = 1 * 10;  // Lunarium: 1 minute
         nMaturity = 15;
         nMasternodeCountDrift = 4;
-        nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
+        // nModifierUpdateBlock = 51197; //shouldn't be needed for Lunarium
         nMaxMoneyOut = 43199500 * COIN;
         nLastPOWBlock = 50000;
         nZerocoinStartHeight = 200;
