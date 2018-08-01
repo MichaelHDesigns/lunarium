@@ -109,7 +109,7 @@ public:
     int Zerocoin_HeaderVersion() const { return nZerocoinHeaderVersion; }
 
     /** Height or Time Based Activations **/
-    int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
+    // int ModifierUpgradeBlock() const { return nModifierUpdateBlock; } //shouldn't be needed for Lunarium
     int LAST_POW_BLOCK() const { return nLastPOWBlock; }
     int Zerocoin_StartHeight() const { return nZerocoinStartHeight; }
     int Zerocoin_LastOldParams() const { return nZerocoinLastOldParams; }
