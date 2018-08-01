@@ -13,22 +13,22 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 70005;
+static const int PROTOCOL_VERSION = 70006;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
 
 //! In this version, 'getheaders' was introduced.
-static const int GETHEADERS_VERSION = 70005;
+static const int GETHEADERS_VERSION = 70006;
 
 //! disconnect from peers older than this proto version
-static const int MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT = 70005;
-static const int MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT = 70005;
+static const int MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT = 70006;
+static const int MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT = 70006;
 
-static const int MIN_PEER_VERSION_FIXED_SIGTIME = 70005;
+static const int MIN_PEER_VERSION_FIXED_SIGTIME = 70006;
 
 //! masternodes older than this proto version use old strMessage format for mnannounce
-static const int MIN_PEER_MNANNOUNCE = 70005;
+static const int MIN_PEER_MNANNOUNCE = 70006;
 
 //! nTime field added to CAddress, starting with this version;
 //! if possible, avoid requesting addresses nodes older than this
