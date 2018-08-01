@@ -2155,11 +2155,9 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     if (nHeight == 0) {
-        return 4000000 * COIN; //4M of premine
-    } else if (nHeight <= 400) {
-        return 2500 * COIN; // 1M of premine
+        return 5500000 * COIN; //5.5M premine
     } else if (nHeight <= 1000) { //Setting to 1,000 during testing  
-        return 0.0001 * COIN;
+        return 0.001 * COIN;
     } else if (nHeight <= 1500) { // Setting to 1,500 during testing
         return 10 * COIN;
     } else if (nHeight <= 2000) { // Setting to 2,000 during testing
