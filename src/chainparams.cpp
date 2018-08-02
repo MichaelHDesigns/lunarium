@@ -242,7 +242,6 @@ public:
         nTargetSpacing = 1 * 10;  // Lunarium: 1 minute
         nMaturity = 15;
         nMasternodeCountDrift = 4;
-        // nModifierUpdateBlock = 51197; //shouldn't be needed for Lunarium
         nMaxMoneyOut = 43199500 * COIN;
         nLastPOWBlock = 50000;
         nZerocoinStartHeight = 200;
