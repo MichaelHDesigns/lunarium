@@ -56,7 +56,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (     0, uint256("2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"))
-    (445500, uint256("dbccd01f9774835e378b47a307e9d57120fed9409e511e1adc12fe097dc60695")); // keeping only this one during testing since I'm not sure if below could otherwise become an issue
+    (445500, uint256("dbccd01f9774835e378b47a307e9d57120fed9409e511e1adc12fe097dc60695")); // keeping this one during testing until "Checkpoints::CCheckpointData data" below is updated
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -129,14 +129,13 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Lunarium: 1 day
         nTargetSpacing = 1 * 60;  // Lunarium: 1 minute
-        nMaturity = 101;
+        nMaturity = 101; // Should change to 100 after current test. 101 actually becomed 102 confirmations.
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 1000000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 1500;
-        // nModifierUpdateBlock = 500; //shouldn't be needed for Lunarium
-        nZerocoinStartHeight = 200; // setting to a number where chain should move relatively slow for now. Aim to get rid of later.
+        nZerocoinStartHeight = 200; // Chain moving at normal pace at this block.
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
