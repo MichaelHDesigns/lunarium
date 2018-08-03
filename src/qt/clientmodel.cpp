@@ -10,7 +10,6 @@
 #include "guiconstants.h"
 #include "peertablemodel.h"
 
-#include "alert.h"
 #include "chainparams.h"
 #include "checkpoints.h"
 #include "clientversion.h"
@@ -172,16 +171,6 @@ void ClientModel::updateNumConnections(int numConnections)
 
 void ClientModel::updateAlert(const QString& hash, int status)
 {
-    // Show error message notification for new alert
-    if (status == CT_NEW) {
-        uint256 hash_256;
-        hash_256.SetHex(hash.toStdString());
-        CAlert alert = CAlert::getAlertByHash(hash_256);
-        if (!alert.IsNull()) {
-            emit message(tr("Network Alert"), QString::fromStdString(alert.strStatusBar), CClientUIInterface::ICON_ERROR);
-        }
-    }
-
     emit alertsChanged(getStatusBarWarnings());
 }
 
