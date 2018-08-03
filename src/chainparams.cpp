@@ -56,16 +56,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (     0, uint256("2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"))
-    (  1000, uint256("8defd49579d63545f9e8cdda31f8503e0513328ca3f7428f33a915258c764d15"))
-    ( 10000, uint256("6af2431daa7456e4620e9493091648eeaac8ddfd53d8cff8101c26806e301d9a"))
-    ( 90000, uint256("a883d86273f02cb19252a878d1e0bda1e5321140480b08e3df9544d7b3d1ce56"))
-    (152000, uint256("4dc1a3eb7d17bab4e7f5768e927c9666ba760d6882d3b600519fdd7b83f65610"))
-    (200000, uint256("9260e1eb2d3851bccd2794e2c61c29af91fcd4b56ba207a4b9a5b1e79b53fb10"))
-    (340000, uint256("5554c0f33c36f21b79abfda9f92d1b855ed0e67b556361983af6611d75a022b3"))
-    (390000, uint256("1702d23f4b0f9bbcd98cc34ce90b82dbdb5d4ebf80f135284dfd709b0964f080"))
-    (420000, uint256("d41c1e9e2621f69aefc51e3748049f366aa6a2415968d6d2035c53410cc40305"))
-    (440000, uint256("3b60f85e683263783622581fbe02b5b2e59e72ccc8dc5bd6a69650d709596691"))
-    (445500, uint256("dbccd01f9774835e378b47a307e9d57120fed9409e511e1adc12fe097dc60695"));
+    (445500, uint256("dbccd01f9774835e378b47a307e9d57120fed9409e511e1adc12fe097dc60695")); // keeping this one during testing until "Checkpoints::CCheckpointData data" below is updated
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -138,14 +129,13 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Lunarium: 1 day
         nTargetSpacing = 1 * 60;  // Lunarium: 1 minute
-        nMaturity = 50;
+        nMaturity = 101; // Should change to 100 after current test. 101 actually becomed 102 confirmations.
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 1000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 400;
-        nModifierUpdateBlock = 500;
-        nZerocoinStartHeight = 600;
+        nLastPOWBlock = 1500;
+        nZerocoinStartHeight = 200; // Chain moving at normal pace at this block.
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -252,7 +242,6 @@ public:
         nTargetSpacing = 1 * 10;  // Lunarium: 1 minute
         nMaturity = 15;
         nMasternodeCountDrift = 4;
-        nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
         nLastPOWBlock = 50000;
         nZerocoinStartHeight = 200;
