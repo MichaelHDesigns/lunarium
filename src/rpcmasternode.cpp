@@ -249,6 +249,7 @@ UniValue listmasternodes(const UniValue& params, bool fHelp)
 
             obj.push_back(Pair("rank", (strStatus == "ENABLED" ? s.first : 0)));
             obj.push_back(Pair("network", strNetwork));
+            obj.push_back(Pair("ip", strHost));
             obj.push_back(Pair("txhash", strTxHash));
             obj.push_back(Pair("outidx", (uint64_t)oIdx));
             obj.push_back(Pair("status", strStatus));
@@ -1090,4 +1091,3 @@ UniValue relaymasternodebroadcast(const UniValue& params, bool fHelp)
 
     return strprintf("Masternode broadcast sent (service %s, vin %s)", mnb.addr.ToString(), mnb.vin.ToString());
 }
-
