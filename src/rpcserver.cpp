@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Phore developers 
+// Copyright (c) 2017 The Phore developers
 // Copyright (c) 2018 The Lunarium developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -438,6 +438,7 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet", "walletpassphrasechange", &walletpassphrasechange, true, false, true},
         {"wallet", "walletpassphrase", &walletpassphrase, true, false, true},
 
+#ifdef ENABLE_PRIVACY
         {"zerocoin", "getzerocoinbalance", &getzerocoinbalance, false, false, true},
         {"zerocoin", "listmintedzerocoins", &listmintedzerocoins, false, false, true},
         {"zerocoin", "listspentzerocoins", &listspentzerocoins, false, false, true},
@@ -453,6 +454,7 @@ static const CRPCCommand vRPCCommands[] =
         {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false, false, false},
         {"zerocoin", "getzphrseed", &getzphrseed, false, false, true},
         {"zerocoin", "setzphrseed", &setzphrseed, false, false, true}
+#endif // ENABLE_PRIVACY
 
 #endif // ENABLE_WALLET
 };

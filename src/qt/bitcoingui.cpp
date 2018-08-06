@@ -63,6 +63,11 @@
 #include <QUrlQuery>
 #endif
 
+// Disable Privacy (zerocoin) features for now
+#ifdef ENABLE_PRIVACY
+    #undef ENABLE_PRIVACY
+#endif
+
 const QString BitcoinGUI::DEFAULT_WALLET = "~Default";
 
 BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMainWindow(parent),
@@ -343,7 +348,9 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
 #else
     privacyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
 #endif
+#if ENABLE_PRIVACY // Disable privacy features from the wallet for now
     tabGroup->addAction(privacyAction);
+#endif
 
 #ifdef ENABLE_WALLET
 
@@ -371,8 +378,10 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(gotoSendCoinsPage()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
+#if ENABLE_PRIVACY
     connect(privacyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(privacyAction, SIGNAL(triggered()), this, SLOT(gotoPrivacyPage()));
+#endif
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
 #endif // ENABLE_WALLET
@@ -557,9 +566,11 @@ void BitcoinGUI::createToolBars()
         toolbar->addAction(overviewAction);
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
-        toolbar->addAction(privacyAction);
         toolbar->addAction(historyAction);
+        // Disable privacy feature for now
+#if ENABLE_PRIVACY
         toolbar->addAction(privacyAction);
+#endif
         QSettings settings;
         if (settings.value("fShowMasternodesTab").toBool()) {
             toolbar->addAction(masternodeAction);
@@ -658,7 +669,9 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     overviewAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
     receiveCoinsAction->setEnabled(enabled);
+#if ENABLE_PRIVACY
     privacyAction->setEnabled(enabled);
+#endif
     historyAction->setEnabled(enabled);
     QSettings settings;
     if (settings.value("fShowMasternodesTab").toBool()) {
@@ -715,7 +728,9 @@ void BitcoinGUI::createTrayIconMenu()
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(sendCoinsAction);
     trayIconMenu->addAction(receiveCoinsAction);
+#if ENABLE_PRIVACY
     trayIconMenu->addAction(privacyAction);
+#endif
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(signMessageAction);
     trayIconMenu->addAction(verifyMessageAction);
@@ -813,8 +828,10 @@ void BitcoinGUI::gotoReceiveCoinsPage()
 
 void BitcoinGUI::gotoPrivacyPage()
 {
+#if ENABLE_PRIVACY
     privacyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoPrivacyPage();
+#endif
 }
 
 void BitcoinGUI::gotoSendCoinsPage(QString addr)
