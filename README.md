@@ -8,7 +8,7 @@ Lunarium is a cutting edge cryptocurrency, with many features not available in m
   with collateral of 10K XLN
 - Decentralized blockchain voting utilizing Masternode technology. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the Masternodes.
 
-5.2M lunarium was produced for swapping.
+5.2M Lunarium was produced for swapping SLRC to XLN.
 
 ## Links ##
 
