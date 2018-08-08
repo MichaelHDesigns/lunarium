@@ -133,7 +133,7 @@ public:
         nMaxMoneyOut = 1000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 1500;
+        nLastPOWBlock = 3000;
         nZerocoinStartHeight = 200; // Chain moving at normal pace at this block.
 
         /**
