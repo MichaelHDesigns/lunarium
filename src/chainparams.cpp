@@ -55,30 +55,30 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (     0, uint256("2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"))
+    (     0, uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"))
     (445500, uint256("dbccd01f9774835e378b47a307e9d57120fed9409e511e1adc12fe097dc60695")); // keeping this one during testing until "Checkpoints::CCheckpointData data" below is updated
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1532555998, // * UNIX timestamp of last checkpoint block
+    1533640145, // * UNIX timestamp of last checkpoint block
     943282,     // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     1500        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
+    boost::assign::map_list_of(0, uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1504595227,
+    1533640145,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
+    boost::assign::map_list_of(0, uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1504595227,
+    1533640145,
     0,
     100};
 
@@ -128,7 +128,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Lunarium: 1 day
         nTargetSpacing = 1 * 60;  // Lunarium: 1 minute
-        nMaturity = 101; // Should change to 100 after current test. 101 actually becomed 102 confirmations.
+        nMaturity = 100;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 1000000000 * COIN;
 
@@ -146,7 +146,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "12 September 2017";
+        const char* pszTimestamp = "Welcome to the weirdly wonderful world of crypto-art";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -156,13 +156,29 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1505224800;
-        genesis.nBits = 0x207fffff;;
-        genesis.nNonce = 12345;
+        genesis.nTime = 1533640145;
+        genesis.nBits = 0x1e0ffff0;
+        genesis.nNonce = 1;
+
+        // Uncomment the following block of code if you want to create a genesis block by running ./lunariumd.
+        // Make sure to create a new psztimestamp and set your nonce to 0 before compiling, also comment out the assert lines below this block!
+        /*printf("calc new genesis block\n");
+        printf("hashMerkleRoot %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        printf("bnProofOfWorkLimit 0x%x\n", bnProofOfWorkLimit.GetCompact());
+        printf("genesis.nBits 0x%x\n", genesis.nBits);
+
+        for (genesis.nNonce = 0; ; genesis.nNonce++) {
+          hashGenesisBlock = genesis.GetHash();
+          if (hashGenesisBlock <= bnProofOfWorkLimit) break;
+        }
+
+        printf("hashGenesisBlock %s\n", hashGenesisBlock.ToString().c_str());
+        printf("genesis.nNonce %d\n", genesis.nNonce);
+        printf("genesis.nTime %d\n", genesis.nTime);*/
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
-        assert(genesis.hashMerkleRoot == uint256("0x894177137a45952cfed89dd395e7fc85208a53548f34defc7c1a85cb0736b3a3"));
+        assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
+        assert(genesis.hashMerkleRoot == uint256("0x1c2771797cba9b90fb491e2fa45c2b140fe0575e0cca97aa8c0adca84e9e028e"));
 
         vSeeds.push_back(CDNSSeedData("0", "seed1.lunarium.io"));
         vSeeds.push_back(CDNSSeedData("1", "seed2.lunarium.io"));
@@ -247,11 +263,28 @@ public:
         nZerocoinLastOldParams = 100000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1505224800;
-        genesis.nNonce = 12346;
+        genesis.nTime = 1533640145;
+        genesis.nNonce = 1;
+
+        // Uncomment for genesis block creation
+        /*printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        {
+          printf("(test)calc new genesis block\n");
+          printf("hashMerkleRoot %s\n", genesis.hashMerkleRoot.ToString().c_str());
+          printf("bnProofOfWorkLimit 0x%x\n", bnProofOfWorkLimit.GetCompact());
+          printf("genesis.nBits 0x%x\n", genesis.nBits);
+
+          for (genesis.nNonce = 0; ; genesis.nNonce++) {
+            hashGenesisBlock = genesis.GetHash();
+            if (hashGenesisBlock <= bnProofOfWorkLimit) break;
+          }
+
+          printf("hashGenesisBlock %s\n", hashGenesisBlock.ToString().c_str());
+          printf("genesis.nNonce %d\n", genesis.nNonce);
+        }*/
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xfab709a0c107fe7cf6b0d552c514ef3228f9e0f107cd3c9b2fcea96512342cd8"));
+        assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -311,10 +344,10 @@ public:
         nMinerThreads = 1;
         nTargetTimespan = 24 * 60 * 60; // Lunarium: 1 day
         nTargetSpacing = 1 * 60;        // Lunarium: 1 minutes
-        bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1505224800;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 12345;
+        bnProofOfWorkLimit = 0x207fffff; //~uint256(0) >> 1;
+        genesis.nTime = 1533640145;
+        genesis.nBits = 0x1e0ffff0;
+        genesis.nNonce = 1;
         nMaturity = 0;
         nLastPOWBlock = 999999999; // PoS complicates Regtest because of timing issues
         nZerocoinLastOldParams = 499;
@@ -322,7 +355,27 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 45071;
-        assert(hashGenesisBlock == uint256("0x2b1a0f66712aad59ad283662d5b919415a25921ce89511d73019107e380485bf"));
+
+        // Uncomment for genesis block creation
+        /*printf("hashGenesisBlock %s\n", hashGenesisBlock.ToString().c_str());
+        printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+
+        {
+          printf("(regtest)calc new genesis block\n");
+          printf("hashMerkleRoot %s\n", genesis.hashMerkleRoot.ToString().c_str());
+          printf("bnProofOfWorkLimit 0x%x\n", bnProofOfWorkLimit.GetCompact());
+          printf("genesis.nBits 0x%x\n", genesis.nBits);
+
+          for (genesis.nNonce = 0; ; genesis.nNonce++) {
+            hashGenesisBlock = genesis.GetHash();
+            if (hashGenesisBlock <= bnProofOfWorkLimit) break;
+          }
+
+          printf("hashGenesisBlock %s\n", hashGenesisBlock.ToString().c_str());
+          printf("genesis.nNonce %d\n", genesis.nNonce);
+        }*/
+
+        assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
 
         bech32_hrp = "xlnrt";
 
