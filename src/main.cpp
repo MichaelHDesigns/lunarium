@@ -87,7 +87,7 @@ bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
 unsigned int nBytesPerSigOp = DEFAULT_BYTES_PER_SIGOP;
 
-unsigned int nStakeMinAge = 12 * 60 * 60;
+unsigned int nStakeMinAge = 24 * 60 * 60; // 24 hours
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in uphr) are considered zero fee (for relaying and mining)
@@ -2153,22 +2153,22 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     if (nHeight == 0) {
-        return 5500000 * COIN; //5.5M premine
-    } else if (nHeight <= 1000) { //Setting to 1,000 during testing
+        return 5200000 * COIN; //5.2M premine
+    } else if (nHeight <= 30000) { // end of swap period
         return 0.001 * COIN;
-    } else if (nHeight <= 1500) { // Setting to 1,500 during testing
+    } else if (nHeight <= 555602) { 
         return 10 * COIN;
-    } else if (nHeight <= 2000) { // Setting to 2,000 during testing
+    } else if (nHeight <= 1081203) { 
         return 9 * COIN;
-    } else if (nHeight <= 2500) { // Setting to 2,500 during testing
+    } else if (nHeight <= 1606804) {
         return 8 * COIN;
-    } else if (nHeight <= 3000) { // Setting to 3,000 during testing
+    } else if (nHeight <= 2132405) { 
         return 7 * COIN;
-    } else if (nHeight <= 3500) { // Setting to 3,500 during testing
+    } else if (nHeight <= 2658006) { 
         return 6 * COIN;
-    } else if (nHeight <= 4000) { // Setting to 4,000 during testing
+    } else if (nHeight <= 3183607) { 
         return 5 * COIN;
-    } else if (nHeight <= 4500) { // Setting to 4,500 during testing
+    } else if (nHeight <= 3709208) {
         return 4 * COIN;
     } else {
         return 3 * COIN;
