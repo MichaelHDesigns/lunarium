@@ -133,7 +133,7 @@ public:
         nMaxMoneyOut = 1000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 1500;
+        nLastPOWBlock = 3000;
         nZerocoinStartHeight = 200; // Chain moving at normal pace at this block.
 
         /**
@@ -205,7 +205,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04659d53bd8f7ad9d34a17281febedac754e5a6eb136142d3a9c6c0ea21b6ed7498ceb3d872eed00ae755f7aeadaeb1d9ab5e1a8f1e7efcd0ddcb39d4623c12790";
+        strSporkKey = "0490908eeac4c1934efa7082c31f5f2b3c208b7413fefbfdd190394146c4b909bfc33330b50adc533641479c1d38d92eb9d45cd00c189f8a290c68284e41c5e8ef";
         strObfuscationPoolDummyAddress = "LCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
 
         /** Zerocoin */
@@ -311,7 +311,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "040d2595becca91020213bf94735fa26bb92a206aa21be45b0e95f205ff8588ecb9398c5c7d8cfaf78149d230b8dc066c3660573ff2104dac98e43283d6dc882d6";
+        strSporkKey = "0490908eeac4c1934efa7082c31f5f2b3c208b7413fefbfdd190394146c4b909bfc33330b50adc533641479c1d38d92eb9d45cd00c189f8a290c68284e41c5e8ef";
         strObfuscationPoolDummyAddress = "LCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
@@ -390,11 +390,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
         nRequiredAccumulation = 1;
 
-        // {
-        //     "PrivateKey": "923EhWh2bJHynX6d4Tqt2Q75bhTDCT1b4kff3qzDKDZHZ6pkQs7",
-        //     "PublicKey": "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a"
-        // }
-        strSporkKey = "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a";
+        strSporkKey = "0490908eeac4c1934efa7082c31f5f2b3c208b7413fefbfdd190394146c4b909bfc33330b50adc533641479c1d38d92eb9d45cd00c189f8a290c68284e41c5e8ef";
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {

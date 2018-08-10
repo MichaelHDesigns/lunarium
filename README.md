@@ -1,8 +1,6 @@
 Lunarium integration/staging repository
 =====================================
 
-[![Build Status](https://travis-ci.org/lunariumproject/Lunarium.svg?branch=master)](https://travis-ci.org/lunariumproject/Lunarium)
-
 Lunarium is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
 - Anonymized transactions using zerocoin technology
 - 100% Proof of Stake 3.0 Consensus protocol, allowing very low transaction fees and energy expenditure, and staking rewards to all participants in the network
@@ -10,9 +8,9 @@ Lunarium is a cutting edge cryptocurrency, with many features not available in m
   with collateral of 10K XLN
 - Decentralized blockchain voting utilizing Masternode technology. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the Masternodes.
 
-5M lunarium was produced for swapping.
+5.2M Lunarium was produced for swapping SLRC to XLN.
 
-## BCT Thread ##
+## Links ##
 
 Coming soon.
 
@@ -30,10 +28,10 @@ Rebrand from Solarium (SLRC) to Lunarium (XLN)
 
 <table>
 <th>From Block</th><th>Reward</th><th>Masternodes</th><th>Stakers</th>
-<tr><td>2</td><td>0.0001 XLN</td><td>0.00007 XLN</td><td>0.00003 XLN</td></tr>
+<tr><td>2</td><td>0.001 XLN</td><td>0.0007 XLN</td><td>0.0003 XLN</td></tr>
 <tr><td>30,002</td><td>10 XLN</td><td>7 XLN</td><td>3 XLN</td></tr>
 <tr><td>555,602</td><td>9 XLN</td><td>6.3 XLN</td><td>2.7 XLN</td></tr>
-<tr><td>1,081,20</td><td>8 XLN</td><td>5.6 XLN</td><td>2.4 XLN</td></tr>
+<tr><td>1,081,203</td><td>8 XLN</td><td>5.6 XLN</td><td>2.4 XLN</td></tr>
 <tr><td>1,606,805</td><td>7 XLN</td><td>4.9 XLN</td><td>2.1 XLN</td></tr>
 <tr><td>2,132,406</td><td>6 XLN</td><td>4.2 XLN</td><td>1.8 XLN</td></tr>
 <tr><td>2,658,007</td><td>5 XLN</td><td>3.5 XLN</td><td>1.5 XLN</td></tr>
