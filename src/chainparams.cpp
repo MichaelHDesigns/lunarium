@@ -205,7 +205,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "0490908eeac4c1934efa7082c31f5f2b3c208b7413fefbfdd190394146c4b909bfc33330b50adc533641479c1d38d92eb9d45cd00c189f8a290c68284e41c5e8ef";
+        strSporkKey = "048aa0e5c422632834bffd0588817bf90d7b19423a9d6b6959bc480d0d8bfc837ef6d4d6f90213bcde3e8a160dc7fa98840555e0bf0d7402001eafdcb8e6a5a18d";
         strObfuscationPoolDummyAddress = "LCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
 
         /** Zerocoin */
@@ -311,7 +311,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "0490908eeac4c1934efa7082c31f5f2b3c208b7413fefbfdd190394146c4b909bfc33330b50adc533641479c1d38d92eb9d45cd00c189f8a290c68284e41c5e8ef";
+        strSporkKey = "048aa0e5c422632834bffd0588817bf90d7b19423a9d6b6959bc480d0d8bfc837ef6d4d6f90213bcde3e8a160dc7fa98840555e0bf0d7402001eafdcb8e6a5a18d";
         strObfuscationPoolDummyAddress = "LCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
@@ -390,7 +390,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
         nRequiredAccumulation = 1;
 
-        strSporkKey = "0490908eeac4c1934efa7082c31f5f2b3c208b7413fefbfdd190394146c4b909bfc33330b50adc533641479c1d38d92eb9d45cd00c189f8a290c68284e41c5e8ef";
+        strSporkKey = "048aa0e5c422632834bffd0588817bf90d7b19423a9d6b6959bc480d0d8bfc837ef6d4d6f90213bcde3e8a160dc7fa98840555e0bf0d7402001eafdcb8e6a5a18d";
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
