@@ -182,6 +182,9 @@ public:
 
         vSeeds.push_back(CDNSSeedData("0", "seed1.lunarium.io"));
         vSeeds.push_back(CDNSSeedData("1", "seed2.lunarium.io"));
+        vSeeds.push_back(CDNSSeedData("2", "seed3.lunarium.io"));
+        vSeeds.push_back(CDNSSeedData("3", "seed4.lunarium.io"));
+        vSeeds.push_back(CDNSSeedData("4", "seed5.lunarium.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
