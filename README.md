@@ -2,26 +2,24 @@ Lunarium integration/staging repository
 =====================================
 
 Lunarium is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
-- Anonymized transactions using zerocoin technology
-- 100% Proof of Stake 3.0 Consensus protocol, allowing very low transaction fees and energy expenditure, and staking rewards to all participants in the network
-- Masternode technology used to secure the network and provide the above features, each Masternode is secured
-  with collateral of 10K XLN
+- 100% Proof of Stake 3.0 Consensus protocol, allowing very low transaction fees and energy expenditure, and staking rewards to all participants in the network.
+- Masternode technology used to secure the network and provide additional features. Each Masternode is secured with collateral of 10,000 XLN.
 - Decentralized blockchain voting utilizing Masternode technology. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the Masternodes.
-
-5.2M Lunarium was produced for swapping SLRC to XLN.
+- 5.2M Lunarium was produced for swapping SLRC to XLN. 
 
 ## Links ##
 
-Coming soon.
-
-Rebrand from Solarium (SLRC) to Lunarium (XLN)
+Webpage: http://www.lunarium.io/  
+Twitter: https://twitter.com/lunariumcoin/  
+Discord: https://discord.gg/4nFZeJr  
+Explorer: https://explorer.lunarium.io/  
 
 ## Coin Specs ##
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoS Phase)</td><td>Infinite</td></tr>
+<tr><td>Max Coin Supply</td><td>Infinite</td></tr>
 </table>
 
 ## PoS Rewards Breakdown ##
@@ -39,4 +37,6 @@ Rebrand from Solarium (SLRC) to Lunarium (XLN)
 <tr><td>3,709,209</td><td>3 XLN</td><td>2.1 XLN</td><td>0.9 XLN</td></tr>
 </table>
 
-The Lunarium development budget is up to a maximum of 1 XLN per block, paid out based on approved proposals as voted on by the Lunarium masternode owners through the community governance process.
+Please note that all transaction fees on Lunarium are burnt and the POS receiver pays this fee for new blocks. Transaction fees for new block during testing has been 0.0000416 XLN. 
+
+The Lunarium development budget is up to a maximum of 1 XLN per block, paid out based on approved proposals every 30 days (or 43,200 blocks) as voted on by the Lunarium masternode owners through the community governance process. These coins will only be generated if there are approved proposals.
