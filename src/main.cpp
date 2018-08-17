@@ -10,6 +10,7 @@
 #include "main.h"
 
 #include "accumulators.h"
+#include "alert.h"
 #include "addrman.h"
 #include "base58.h"
 #include "chainparams.h"
