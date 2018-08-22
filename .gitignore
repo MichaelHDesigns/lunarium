@@ -127,3 +127,5 @@ qa/pull-tester/test.*/*
 cmake-build-debug
 
 cache
+
+\.settings/
