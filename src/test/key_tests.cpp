@@ -17,11 +17,12 @@
 
 using namespace std;
 
-static const string strSecret1C    ("YW1WMgiUmWB7MBNynCtaPXBzZhGALuRbxz88B8iiMn2wvQ2ZkBnp");
-static const string strSecret2C    ("YQxtSXpSPQ9dawRigbVGgtWQWpNdmxwbtJeNcqETdMx5R5AnUUda");
+static const string strSecret1C    ("cNmhcBv76pk1AePVXwwsJttHFQytnvy5WysDiFqcT5qbxmg83hek");
+static const string strSecret2C    ("cTEj9LkP1DMycniUVpNj74AkdKH9Go7urU64gNZ79xTVyj1E8uH9");
 
-static const string addr1C = "LV2bPNjSDyTEAptYoLE4n39N2WbfhFUose";
-static const string addr2C = "LRHc5szigS3mP49gPDnWyhxdnD69iuzrcp";
+//Note: Those are TestNet addresses, so they don't start with a "L"
+static const string addr1C = "yHMyqqUaSGifPgGqiciFjVuuako1agdHXq";
+static const string addr2C = "xxE211DyUWRUnPFMXcQ2wwj2ZZmhavMP6x";
 
 
 static const string strAddressBad("Xta1praZQjyELweyMByXyiREw1ZRsjXzVP");
