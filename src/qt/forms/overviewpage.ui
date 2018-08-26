@@ -445,6 +445,9 @@
                          <property name="text">
                           <string notr="true">0 %</string>
                          </property>
+                         <property name="visible">
+                           <bool>false</bool>
+                         </property>
                         </widget>
                        </item>
                        <item>
