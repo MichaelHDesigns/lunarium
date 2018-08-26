@@ -4505,10 +4505,10 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "Lunarium Alert" admin@foo.com
 </source>
-        <translation>Phored 또는 Lunarium-qt에 대한 -server 옵션 파일을 사용하려면 configuration 파일에서 rpcpassword를 설정해야 합니다:
+        <translation>Lunariumd 또는 Lunarium-qt에 대한 -server 옵션 파일을 사용하려면 configuration 파일에서 rpcpassword를 설정해야 합니다:
 %s
 다음 무작위 암호를 사용하는 것을 추천합니다:
-rpcuser=Phorepc
+rpcuser=Lunariumpc
 rpcpassword=%s
 (이 비밀번호는 기억할 필요가 없습니다)
 유저 이름과 비밀번호는 반드시 달라야 합니다.

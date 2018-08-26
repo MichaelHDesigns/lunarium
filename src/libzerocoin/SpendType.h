@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PHORE_SPENDTYPE_H
-#define PHORE_SPENDTYPE_H
+#ifndef SPENDTYPE_H
+#define SPENDTYPE_H
 
 #include <cstdint>
 
@@ -16,4 +16,4 @@ namespace libzerocoin {
     };
 }
 
-#endif //PIVX_SPENDTYPE_H
+#endif //SPENDTYPE_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PHORE_ZXLNTRACKER_H
-#define PHORE_ZXLNTRACKER_H
+#ifndef ZXLNTRACKER_H
+#define ZXLNTRACKER_H
 
 #include "primitives/zerocoin.h"
 #include <list>
@@ -48,5 +48,4 @@ public:
     void Clear();
 };
 
-#endif //PHORE_ZXLNTRACKER_H
-
+#endif //ZXLNTRACKER_H
