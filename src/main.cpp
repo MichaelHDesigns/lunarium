@@ -2154,21 +2154,21 @@ int64_t GetBlockValue(int nHeight)
 {
     if (nHeight == 0) {
         return 5200000 * COIN; //5.2M premine
-    } else if (nHeight <= 30000) { // end of swap period
+    } else if (nHeight > 0 && nHeight <= 30000) { // end of swap period
         return 0.001 * COIN;
-    } else if (nHeight <= 555602) { 
+    } else if (nHeight > 30000 && nHeight <= 555602) { 
         return 10 * COIN;
-    } else if (nHeight <= 1081203) { 
+    } else if (nHeight > 555602 && nHeight <= 1081203) { 
         return 9 * COIN;
-    } else if (nHeight <= 1606804) {
+    } else if (nHeight > 1081203 && nHeight <= 1606804) {
         return 8 * COIN;
-    } else if (nHeight <= 2132405) { 
+    } else if (nHeight > 1606804 && nHeight <= 2132405) { 
         return 7 * COIN;
-    } else if (nHeight <= 2658006) { 
+    } else if (nHeight > 2132405 && nHeight <= 2658006) { 
         return 6 * COIN;
-    } else if (nHeight <= 3183607) { 
+    } else if (nHeight > 2658006 && nHeight <= 3183607) { 
         return 5 * COIN;
-    } else if (nHeight <= 3709208) {
+    } else if (nHeight > 3183607 && nHeight <= 3709208) {
         return 4 * COIN;
     } else {
         return 3 * COIN;
@@ -6583,6 +6583,10 @@ int ActiveProtocol()
 {
     if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
         return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+
+    if (IsSporkActive(SPORK_18_NEW_PROTOCOL_ENFORCEMENT_3))
+        return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT3;
+    
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
 }
 
