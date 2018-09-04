@@ -262,7 +262,7 @@ public:
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nMaxMoneyOut = 43199500 * COIN;
-        nLastPOWBlock = 50000;
+        nLastPOWBlock = 500;
         nZerocoinStartHeight = 200;
 
         nZerocoinLastOldParams = 100000000;
