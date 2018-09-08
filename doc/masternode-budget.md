@@ -27,7 +27,7 @@ preparebudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iB
 
 Output: `fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310` - This is the collateral hash, copy this output for the next step
 
-In this transaction we prepare collateral for "_cool-project_". This proposal will pay _1200_ Lunarium, _12_ times over the course of a year totaling _24000_ Lunarium.
+In this transaction we prepare collateral for "testing". This proposal will pay _50_ Lunarium, _1_ time totaling _50_ Lunarium.
 
 **Warning -- if you change any fields within this command, the collateral transaction will become invalid.**
 
