@@ -18,30 +18,30 @@ Budgets go through a series of stages before being paid:
 Prepare collateral transaction
 ------------------------
 
-mnbudget prepare \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<lunarium_address\> \<monthly_payment_lunarium\> [use_ix(true|false)]
+preparebudget \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<lunarium_address\> \<monthly_payment_lunarium\> [use_ix(true|false)]
 
 Example:
 ```
-mnbudget prepare cool-project http://www.cool-project/one.json 12 43200 LRPC3mdUvYMmovyjDhq6rqAFkWW8SVjbfS 1200 true
+preparebudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU 50
 ```
 
-Output: `464a0eb70ea91c94295214df48c47baa72b3876cfb658744aaf863c7b5bf1ff0` - This is the collateral hash, copy this output for the next step
+Output: `fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310` - This is the collateral hash, copy this output for the next step
 
-In this transaction we prepare collateral for "_cool-project_". This proposal will pay _1200_ Lunarium, _12_ times over the course of a year totaling _24000_ Lunarium.
+In this transaction we prepare collateral for "testing". This proposal will pay _50_ Lunarium, _1_ time totaling _50_ Lunarium.
 
 **Warning -- if you change any fields within this command, the collateral transaction will become invalid.**
 
 Submit proposal to network
 ------------------------
 
-mnbudget submit \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<lunarium_address\> \<monthly_payment_lunarium\> \<collateral_hash\>
+submitbudget \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<lunarium_address\> \<monthly_payment_lunarium\> \<collateral_hash\>
 
 Example:
 ```
-mnbudget submit cool-project http://www.cool-project/one.json 12 43200 LRPC3mdUvYMmovyjDhq6rqAFkWW8SVjbfS 1200 464a0eb70ea91c94295214df48c47baa72b3876cfb658744aaf863c7b5bf1ff0
+submitbudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU 50 fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310
 ```
 
-Output: `a2b29778ae82e45a973a94309ffa6aa2e2388b8f95b39ab3739f0078835f0491` - This is your proposal hash, which other nodes will use to vote on it
+Output: `7321a7bc082f933f418563af872a21b9b5707ca386de33866dd36e486faaa49d` - This is your proposal hash, which other nodes will use to vote on it
 
 Lobby for votes
 ------------------------
@@ -52,41 +52,41 @@ mnbudget getinfo \<proposal-name\>
 
 Example:
 ```
-mnbudget getinfo cool-project
+mnbudget getinfo testing
 ```
 Output:
 ```
-{
-    "Name" : "cool-project",
-    "Hash" : "a2b29778ae82e45a973a94309ffa6aa2e2388b8f95b39ab3739f0078835f0491",
-    "FeeHash" : "464a0eb70ea91c94295214df48c47baa72b3876cfb658744aaf863c7b5bf1ff0",
-    "URL" : "http://www.cool-project/one.json",
-    "BlockStart" : 43200,
-    "BlockEnd" : 518400,
-    "TotalPaymentCount" : 12,
-    "RemainingPaymentCount" : 12,
-    "PaymentAddress" : "LRPC3mdUvYMmovyjDhq6rqAFkWW8SVjbfS",
-    "Ratio" : 0.00000000,
-    "Yeas" : 0,
-    "Nays" : 0,
-    "Abstains" : 0,
-    "TotalPayment" : 14400.00000000,
-    "MonthlyPayment" : 1200.00000000,
-    "IsValid" : true,
-    "fValid" : true
-}
+    "Name": "testing",
+    "URL": "https://discord.gg/4nFZeJr",
+    "Hash": "7321a7bc082f933f418563af872a21b9b5707ca386de33866dd36e486faaa49d",
+    "FeeHash": "fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310",
+    "BlockStart": 43200,
+    "BlockEnd": 86401,
+    "TotalPaymentCount": 1,
+    "RemainingPaymentCount": 1,
+    "PaymentAddress": "LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU",
+    "Ratio": 1,
+    "Yeas": 32,
+    "Nays": 0,
+    "Abstains": 0,
+    "TotalPayment": 50.00000000,
+    "MonthlyPayment": 50.00000000,
+    "IsEstablished": true,
+    "IsValid": true,
+    "IsValidReason": "",
+    "fValid": true
 ```
 
-If everything looks correct, you can ask for votes from other masternodes. To vote on a proposal, load a wallet with _masternode.conf_ file. You do not need to access your cold wallet to vote for proposals.
+If everything looks correct, you can ask for votes from other masternodes. To vote on a proposal, load a wallet with _masternode.conf_ file. You should not access your cold wallet to vote for proposals.
 
-mnbudget vote \<proposal_hash\> [yes|no]
+mnbudgetvote "many" \<proposal_hash\> [yes|no]
 
 Example:
 ```
-mnbudget vote a2b29778ae82e45a973a94309ffa6aa2e2388b8f95b39ab3739f0078835f0491 yes
+mnbudgetvote "many" 7321a7bc082f933f418563af872a21b9b5707ca386de33866dd36e486faaa49d yes
 ```
 
-Output: `Voted successfully` - Your vote has been submitted and accepted.
+Output: `"overall": "Voted successfully 10 time(s) and failed 0 time(s)."` - Your vote has been submitted and accepted.
 
 Make it into the budget
 ------------------------
@@ -100,26 +100,27 @@ mnbudget projection
 
 Output:
 ```
-{
-    "cool-project" : {
-	    "Hash" : "a2b29778ae82e45a973a94309ffa6aa2e2388b8f95b39ab3739f0078835f0491",
-	    "FeeHash" : "464a0eb70ea91c94295214df48c47baa72b3876cfb658744aaf863c7b5bf1ff0",
-	    "URL" : "http://www.cool-project/one.json",
-	    "BlockStart" : 43200,
-	    "BlockEnd" : 518400,
-	    "TotalPaymentCount" : 12,
-	    "RemainingPaymentCount" : 12,
-	    "PaymentAddress" : "LRPC3mdUvYMmovyjDhq6rqAFkWW8SVjbfS",
-	    "Ratio" : 1.00000000,
-	    "Yeas" : 33,
-	    "Nays" : 0,
-	    "Abstains" : 0,
-	    "TotalPayment" : 14400.00000000,
-	    "MonthlyPayment" : 1200.00000000,
-	    "IsValid" : true,
-	    "fValid" : true
-	}
-}
+ "Name": "testing",
+    "URL": "https://discord.gg/4nFZeJr",
+    "Hash": "7321a7bc082f933f418563af872a21b9b5707ca386de33866dd36e486faaa49d",
+    "FeeHash": "fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310",
+    "BlockStart": 43200,
+    "BlockEnd": 86401,
+    "TotalPaymentCount": 1,
+    "RemainingPaymentCount": 1,
+    "PaymentAddress": "LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU",
+    "Ratio": 1,
+    "Yeas": 32,
+    "Nays": 0,
+    "Abstains": 0,
+    "TotalPayment": 50.00000000,
+    "MonthlyPayment": 50.00000000,
+    "IsEstablished": true,
+    "IsValid": true,
+    "IsValidReason": "",
+    "fValid": true,
+    "Alloted": 50.00000000,
+    "TotalBudgetAlloted": 50.00000000
 ```
 
 Finalized budget
@@ -127,12 +128,12 @@ Finalized budget
 
 ```
 "main" : {
-        "FeeTX" : "d6b8de9a4cadfe148f91e8fe8eed407199f96639b482f956ae6f539b8339f87c",
-        "Hash" : "6e8bbaba5113de592f6888f200f146448440b7e606fcf62ef84e60e1d5ac7d64",
+        "FeeTX" : "fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310",
+        "Hash" : "7321a7bc082f933f418563af872a21b9b5707ca386de33866dd36e486faaa49d",
         "BlockStart" : 43200,
-        "BlockEnd" : 518400,
-        "Proposals" : "cool-project",
-        "VoteCount" : 46,
+        "BlockEnd" : 86401,
+        "Proposals" : "testing",
+        "VoteCount" : 32,
         "Status" : "OK"
     },
 ```
@@ -140,7 +141,7 @@ Finalized budget
 Get paid
 ------------------------
 
-When block `43200` is reached you'll receive a payment for `1200` Lunarium.
+When block `43200` is reached you'll receive a payment for `50` Lunarium.
 
 
 RPC Commands
@@ -148,8 +149,8 @@ RPC Commands
 
 The following RPC commands are supported:
 - mnbudget "command"... ( "passphrase" )
- * prepare            - Prepare proposal for network by signing and creating tx
- * submit             - Submit proposal for network
+ * preparebudget      - Prepare proposal for network by signing and creating tx
+ * submitbudget       - Submit proposal for network
  * vote-many          - Vote on a Lunarium initiative
  * vote-alias         - Vote on a Lunarium initiative
  * vote               - Vote on a Lunarium initiative/budget
