@@ -316,8 +316,9 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "048aa0e5c422632834bffd0588817bf90d7b19423a9d6b6959bc480d0d8bfc837ef6d4d6f90213bcde3e8a160dc7fa98840555e0bf0d7402001eafdcb8e6a5a18d";
-        strObfuscationPoolDummyAddress = "LCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
+        // Priv key: 93HghXW2rpbfPSjTzbncv5EAdhRMhjKXPcxsqDVQXd5nEk3aWnp
+        strSporkKey = "04396ada3ef4564da3121847866853a9c8dd20eed1f2b72d36b54a081bd49e6e724d0bb6100aa957e1846e931a5cb09fd9dacca7a4286694733b366d2770609ea3";
+        strObfuscationPoolDummyAddress = "y3csZHtDJf9Q5AzshojX39h3wvJNcRUEWA";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
     }
