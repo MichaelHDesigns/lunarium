@@ -1582,7 +1582,6 @@ void static ThreadStakeMinter()
         LogPrintf("ThreadStakeMinter() exception: %s \n", e.what());
     } catch (...) {
         LogPrintf("ThreadStakeMinter() error \n");
-        LogPrintf("ThreadStakeMinter() error \n", e.what());
     }
     LogPrintf("ThreadStakeMinter exiting,\n");
 }
