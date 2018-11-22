@@ -2114,10 +2114,17 @@ bool CWallet::MintableCoins()
 {
     LOCK(cs_main);
     CAmount nBalance = GetBalance();
-    if (mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
-        return error("MintableCoins() : invalid reserve balance amount");
-    if (nBalance <= nReserveBalance)
-        return false;
+    CAmount nZerocoinBalance = GetZerocoinBalance(false);
+
+    // XLN
+    if (nBalance > 0) {
+        if(mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance)) {
+            return error("%s : invalid reserve balance amount", __func__);
+        }
+        if (nBalance <= nReserveBalance) {
+            return false;
+        }
+    }
 
     vector<COutput> vCoins;
     AvailableCoins(vCoins, true);
@@ -2130,8 +2137,19 @@ bool CWallet::MintableCoins()
             nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
         }
 
-        if (GetAdjustedTime() - nTxTime > nStakeMinAge)
-            return true;
+        for (const COutput& out : vCoins) {
+            int64_t nTxTime = out.tx->GetTxTime();
+            if (out.tx->IsZerocoinSpend()) {
+                if (!out.tx->IsInMainChain()) {
+                    continue;
+                nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
+                }
+            }
+
+            if (GetAdjustedTime() - nTxTime > nStakeMinAge) {
+                return true;
+            }
+        }
     }
 
     return false;
@@ -3004,8 +3022,10 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         if (fKernelFound)
             break; // if kernel is found stop searching
     }
-    if (nCredit == 0 || nCredit > nBalance - nReserveBalance)
+    
+    if (nCredit == 0 || nCredit > (nBalance > 0 ? nBalance - nReserveBalance : GetZerocoinBalance(false))) {
         return false;
+    }
 
     // Calculate reward
     CAmount nReward;
