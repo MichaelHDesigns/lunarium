@@ -441,16 +441,6 @@
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="labelXLNPercent">
-                         <property name="text">
-                          <string notr="true">0 %</string>
-                         </property>
-                         <property name="visible">
-                           <bool>false</bool>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
                         <spacer name="horizontalSpacer_3">
                          <property name="orientation">
                           <enum>Qt::Horizontal</enum>
