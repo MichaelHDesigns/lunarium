@@ -39,7 +39,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     QString copyrightTextDash = QChar(0xA9) + QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core developers"));
     QString copyrightTextPIVX = QChar(0xA9) + QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The PIVX Core developers"));
     QString copyrightTextPhore = QChar(0xA9) + QString(" 2017-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Phore developers"));
-    QString copyrightTextLunarium = QChar(0xA9) + QString(" %1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Lunarium developers"));
+    QString copyrightTextLunarium = QChar(0xA9) + QString(" 2018-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Lunarium developers"));
     QString titleAddText = networkStyle->getTitleAddText();
 
     QString font = QApplication::font().toString();
