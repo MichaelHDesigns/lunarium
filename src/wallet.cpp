@@ -2114,7 +2114,7 @@ bool CWallet::MintableCoins()
 {
     LOCK(cs_main);
     CAmount nBalance = GetBalance();
-    CAmount nZerocoinBalance = GetZerocoinBalance(false);
+    // CAmount nZerocoinBalance = GetZerocoinBalance(false);  // commented out unused variable
 
     // XLN
     if (nBalance > 0) {
@@ -2129,6 +2129,7 @@ bool CWallet::MintableCoins()
     vector<COutput> vCoins;
     AvailableCoins(vCoins, true);
 
+    /* Commenting out after compiling shows that this nTxTime is never user for anything
     for (const COutput& out : vCoins) {
         int64_t nTxTime = out.tx->GetTxTime();
         if (out.tx->IsZerocoinSpend()) {
@@ -2136,7 +2137,7 @@ bool CWallet::MintableCoins()
                 continue;
             nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
         }
-
+      */
         for (const COutput& out : vCoins) {
             int64_t nTxTime = out.tx->GetTxTime();
             if (out.tx->IsZerocoinSpend()) {
@@ -3022,7 +3023,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         if (fKernelFound)
             break; // if kernel is found stop searching
     }
-    
+
     if (nCredit == 0 || nCredit > (nBalance > 0 ? nBalance - nReserveBalance : GetZerocoinBalance(false))) {
         return false;
     }
@@ -4690,7 +4691,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
     libzerocoin::CoinDenomination denomination = zerocoinSelected.GetDenomination();
     libzerocoin::PublicCoin pubCoinSelected(paramsCoin, zerocoinSelected.GetValue(), denomination);
     //LogPrintf("%s : selected mint %s\n pubcoinhash=%s\n", __func__, zerocoinSelected.ToString(), GetPubCoinHash(zerocoinSelected.GetValue()).GetHex());
-    
+
     if (!pubCoinSelected.validate()) {
         receipt.SetStatus(_("The selected mint coin is an invalid coin"), ZXLN_INVALID_COIN);
         return false;
