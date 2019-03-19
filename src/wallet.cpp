@@ -2151,8 +2151,6 @@ bool CWallet::MintableCoins()
                 return true;
             }
         }
-    }
-
     return false;
 }
 
