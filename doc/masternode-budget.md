@@ -126,6 +126,8 @@ Output:
 Finalized budget
 ------------------------
 
+2-3 days before the payout block is reached an additional fee of 50 XLN to finalize the budget is taken but for this to happen any wallet on the lunarium network needs to add `budgetvotemode=suggest` to `lunarium.conf` and the wallet also needs to be restarted. This wallet also needs to be open, unlocked and have the 50 XLN for the finalization fee (+ minor transcation fee). If this fee can't be taken the proposal will not pay out. Unless you have future budgets where you wish to pay this fee it's recommended to remove `budgetvotemode=suggest` to avoid paying future finalization fees.
+
 ```
 "main" : {
         "FeeTX" : "fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310",
