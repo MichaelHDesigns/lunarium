@@ -22,10 +22,13 @@ static const int INIT_PROTO_VERSION = 209;
 static const int GETHEADERS_VERSION = 70009;
 
 //! disconnect from peers older than this proto version
-static const int MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT = 70009;
-static const int MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT = 70012;
+static const int MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT = 70012;
+static const int MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT = 70015;
 
 static const int MIN_PEER_VERSION_FIXED_SIGTIME = 70009;
+
+//! soft fork block
+static const int SOFT_FORK_BLOCK = 360000;
 
 //! masternodes older than this proto version use old strMessage format for mnannounce
 static const int MIN_PEER_MNANNOUNCE = 70009;
