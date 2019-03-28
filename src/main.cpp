@@ -6660,7 +6660,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 //       it was the one which was commented out
 int ActiveProtocol()
 {
-    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
+    if (chainActive.Height() >= SOFT_FORK_BLOCK) {
         return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
     }
     
