@@ -1,5 +1,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017-2019 The Phore Developers
+// Copyright (c) 2017-2019 The Lunarium Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +16,6 @@
 #include "net.h"
 #include "sync.h"
 #include "util.h"
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
@@ -370,8 +371,8 @@ public:
         return true;
     }
 
-    //check to see if we should vote on this
-    void AutoCheck();
+    // Verify and vote on finalized budget
+    void CheckAndVote();
     //total lunarium paid out by this budget
     CAmount GetTotalPayout();
     //vote on this finalized budget as a masternode
@@ -527,7 +528,7 @@ public:
 
     void CleanAndRemove(bool fSignatureCheck);
 
-    uint256 GetHash()
+    uint256 GetHash() const
     {
         CHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);
         ss << strProposalName;

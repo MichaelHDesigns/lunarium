@@ -22,12 +22,12 @@ preparebudget \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<luna
 
 Example:
 ```
-preparebudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU 50
+preparebudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU 1000
 ```
 
 Output: `fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310` - This is the collateral hash, copy this output for the next step
 
-In this transaction we prepare collateral for "testing". This proposal will pay _50_ Lunarium, _1_ time totaling _50_ Lunarium.
+In this transaction we prepare collateral for "testing". This proposal will pay _1000_ Lunarium, _1_ time totaling _1000_ Lunarium.
 
 **Warning -- if you change any fields within this command, the collateral transaction will become invalid.**
 
@@ -38,7 +38,7 @@ submitbudget \<proposal-name\> \<url\> \<payment_count\> \<block_start\> \<lunar
 
 Example:
 ```
-submitbudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU 50 fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310
+submitbudget testing https://discord.gg/4nFZeJr 1 43200 LSZSmLaHy4D6M7PU9zhb7iBunGRRkauyqU 1000 fda9586854d1665e71f3783508b984299d096f2fe91c99654fe2a816675d5310
 ```
 
 Output: `7321a7bc082f933f418563af872a21b9b5707ca386de33866dd36e486faaa49d` - This is your proposal hash, which other nodes will use to vote on it
@@ -69,8 +69,8 @@ Output:
     "Yeas": 32,
     "Nays": 0,
     "Abstains": 0,
-    "TotalPayment": 50.00000000,
-    "MonthlyPayment": 50.00000000,
+    "TotalPayment": 1000.00000000,
+    "MonthlyPayment": 1000.00000000,
     "IsEstablished": true,
     "IsValid": true,
     "IsValidReason": "",
@@ -91,7 +91,7 @@ Output: `"overall": "Voted successfully 10 time(s) and failed 0 time(s)."` - You
 Make it into the budget
 ------------------------
 
-After you get enough votes, execute `mnbudget projection` to see if you made it into the budget. If you the budget was finalized at this moment which proposals would be in it. Note: Proposals must be active at least 1 day on the network and receive 10% of the masternode network in yes votes in order to qualify (E.g. if there is 500 masternodes, you will need 50 yes votes.)
+After you get enough votes, execute `mnbudget projection` to see if you made it into the budget. If you the budget was finalized at this moment which proposals would be in it. Note: Proposals must be active at least 1 day on the network and receive 10% of the masternode network in yes votes in order to qualify (E.g. if there is 500 masternodes, you will need 50 yes votes). Also need to have more yes than no votes.
 
 Example:
 ```
@@ -113,18 +113,20 @@ Output:
     "Yeas": 32,
     "Nays": 0,
     "Abstains": 0,
-    "TotalPayment": 50.00000000,
-    "MonthlyPayment": 50.00000000,
+    "TotalPayment": 1000.00000000,
+    "MonthlyPayment": 1000.00000000,
     "IsEstablished": true,
     "IsValid": true,
     "IsValidReason": "",
     "fValid": true,
-    "Alloted": 50.00000000,
-    "TotalBudgetAlloted": 50.00000000
+    "Alloted": 1000.00000000,
+    "TotalBudgetAlloted": 1000.00000000
 ```
 
 Finalized budget
 ------------------------
+
+2880 blocks (about 48h) before the payout block is reached, a fee of 50 XLN to finalize the proposal is taken but for this to happen a wallet on the lunarium network needs to add `budgetvotemode=suggest` to `lunarium.conf`. This wallet also needs to be open, unlocked and have the 50 XLN for the finalization fee (+ minor transcation fee). If this fee can't be taken the proposal will fail and not pay out! Unless you have future budget blocks where you wish to pay this fee, it's recommended to remove `budgetvotemode=suggest` to avoid paying future finalization fees. The fee is taken for each and every budget block.
 
 ```
 "main" : {
@@ -141,7 +143,7 @@ Finalized budget
 Get paid
 ------------------------
 
-When block `43200` is reached you'll receive a payment for `50` Lunarium.
+When block `43200` is reached you'll receive a payment of `1000` Lunarium.
 
 
 RPC Commands
