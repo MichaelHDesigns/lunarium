@@ -139,3 +139,9 @@ Lunarium\.creator\.user
 Lunarium\.files
 
 Lunarium\.includes
+
+cmake_install\.cmake
+
+CMakeCache\.txt
+
+CMakeFiles/
