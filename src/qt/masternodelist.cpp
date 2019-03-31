@@ -80,7 +80,7 @@ MasternodeList::MasternodeList(QWidget* parent) : QWidget(parent),
     // Fill MN list
     fFilterUpdated = false;
     nTimeFilterUpdated = GetTime();
-    //updateNodeList();
+    updateNodeList();
 }
 
 MasternodeList::~MasternodeList()
@@ -273,9 +273,6 @@ void MasternodeList::updateNodeList(QString strAlias, QString strAddr, CMasterno
         return;
     }
 
-    int nNewRow = 0;
-    bool fOldRowFound = false;
-
     for (int i = 0; i < ui->tableWidgetMyMasternodes->rowCount(); i++) {
         if (ui->tableWidgetMyMasternodes->item(i, 0)->text() == strAlias) {
             fOldRowFound = true;
@@ -331,7 +328,7 @@ void MasternodeList::updateNodeList(QString strAlias, QString strAddr, CMasterno
                       activeSecondsItem->text() + " " +
                       lastSeenItem->text() + " " +
                       pubkeyItem->text();
-        if (!strToFilter.contains(strCurrentFilter)) return;
+        if (!strToFilter.contains(strCurrentFilter)) continue;
     }
 
 
