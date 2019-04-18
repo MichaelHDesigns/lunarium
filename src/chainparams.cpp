@@ -1,9 +1,9 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Phore developers
-// Copyright (c) 2018 The Lunarium developers
+// Copyright (c) 2009-2019 The Bitcoin developers
+// Copyright (c) 2014-2019 The Dash developers
+// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2017-2019 The Phore developers
+// Copyright (c) 2018-2019 The Lunarium developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -262,7 +262,7 @@ public:
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nMaxMoneyOut = 43199500 * COIN;
-        nLastPOWBlock = 500;
+        nLastPOWBlock = 3000;
         nZerocoinStartHeight = 200;
 
         nZerocoinLastOldParams = 100000000;
