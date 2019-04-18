@@ -61,7 +61,7 @@ public:
 		return counters;
 	}
 	
-	void setCounters(int counter)
+	int setCounters(int counter)
 	{
 		counters = counter;
 	}
