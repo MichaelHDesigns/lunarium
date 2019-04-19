@@ -6630,7 +6630,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 ostringstream ss;
                 ss << strMsg << " code " << itostr(ccode) << ": " << strReason;
 
-                if (strMsg == "block" || strMsg == "tx") {
+                if (strMsg == NetMsgType::BLOCK || strMsg == NetMsgType::TX) {
                     uint256 hash;
                     vRecv >> hash;
                     ss << ": hash " << hash.ToString();
@@ -6645,6 +6645,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         if (ccode == REJECT_OBSOLETE) {
             if (PROTOCOL_VERSION < ActiveProtocol()) {
+                uiInterface.ThreadSafeMessageBox("Outdated Wallet", "Your wallet is out of date, please update to the latest version!", CClientUIInterface::MSG_WARNING);
                 LogPrintf("Your node is too old (%d), you MUST upgrade to protocol version %d minimum, exiting...", PROTOCOL_VERSION, ActiveProtocol());
                 StartShutdown();
             }
