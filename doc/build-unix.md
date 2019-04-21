@@ -74,6 +74,22 @@ For Ubuntu 12.04 and later or Debian 7 and later libboost-all-dev has to be inst
  Ubuntu 12.04 and later have packages for libdb5.1-dev and libdb5.1++-dev,
  but using these will break binary wallet compatibility, and is not recommended.
 
+ Ubuntu 18.04 LTS and later
+ ==========================
+
+ While running `./configure` command if you encounter the following error message:
+
+				checking for RAND_egd in -lcrypto... no
+				configure: error: Detected LibreSSL: This is NOT supported, and may break consensus compatibility!
+
+Simply install openssl-dev 1.0 to get rid of this error:
+
+				sudo apt-get install openssl1.0-dev
+
+Rerun `./configure` command after installation is completed. Proceed with the rest
+of the compilation process.
+
+
 For other Debian & Ubuntu (with ppa):
 
 	sudo apt-get install libdb4.8-dev libdb4.8++-dev

@@ -1,5 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2017-2019 The Phore developers
+// Copyright (c) 2018-2019 The Lunarium developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +18,7 @@ class CReserveKey;
 class CScript;
 class CWallet;
 
-class CBlockTemplate;
+struct CBlockTemplate;
 
 /** Run the miner threads */
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads);

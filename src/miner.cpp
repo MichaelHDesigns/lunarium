@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Phore developers
-// Copyright (c) 2018 The Lunarium developers
+// Copyright (c) 2017-2019 The Phore developers
+// Copyright (c) 2018-2019 The Lunarium developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -239,7 +239,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             int64_t nTxSigOpsCost = mi->second.GetSigOpCost();
             if (nBlockSigOpsCost + nTxSigOpsCost >= MAX_BLOCK_SIGOPS_COST)
                 continue;
-            
+
             nBlockSigOpsCost += nTxSigOpsCost;
             pblocktemplate->vTxSigOpsCost.push_back(nTxSigOpsCost);
 
@@ -604,10 +604,10 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 
     while (fGenerateBitcoins || fProofOfStake) {
         if (fProofOfStake) {
-            // Control amount of times client will check for coins
-            if((GetTime() - nMintableLastCheck > 5 * 60)) { // 5 minute check time
-                nMintableLastCheck = GetTime();
-                fMintableCoins = pwallet->MintableCoins();
+          //control the amount of times the client will check for mintable coins
+          if ((GetTime() - nMintableLastCheck > 5 * 60)) {
+            nMintableLastCheck = GetTime();
+            fMintableCoins = pwallet->MintableCoins();
             }
 
             if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
@@ -615,7 +615,8 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 continue;
             }
 
-            while (chainActive.Tip()->nTime < 1504595227 || vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced()) {
+            while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced()) {
+
                 nLastCoinStakeSearchInterval = 0;
 
                 // Seperate 1 minute check to ensure fMintableCoins is updated
@@ -623,7 +624,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                     if (GetTime() - nMintableLastCheck > 1 * 60) { // 1 minute check time
                         nMintableLastCheck = GetTime();
                         fMintableCoins = pwallet->MintableCoins();
-                    } 
+                    }
                 }
 
                 MilliSleep(5000);
