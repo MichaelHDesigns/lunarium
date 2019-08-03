@@ -6,7 +6,7 @@ Lunarium now supports full decentralized budgets that are paid directly from the
 A GUI (graphical user interface) for the QT wallets are planned for those finding below a bit complex to comprehend.
 
 Budgets go through a series of stages before being paid:
-* prepare - create a special transaction that destroys 50 XLN coins in order to make a proposal
+* prepare - create a special transaction that destroys 25 XLN coins in order to make a proposal
 * submit - propagate transaction to peers on network
 * voting - lobby for votes on your proposal
 * get enough votes - make it into the budget
@@ -126,7 +126,7 @@ Output:
 Finalized budget
 ------------------------
 
-2880 blocks (about 48h) before the payout block is reached, a fee of 50 XLN to finalize the proposal is taken but for this to happen a wallet on the lunarium network needs to add `budgetvotemode=suggest` to `lunarium.conf`. This wallet also needs to be open, unlocked and have the 50 XLN for the finalization fee (+ minor transcation fee). If this fee can't be taken the proposal will fail and not pay out! Unless you have future budget blocks where you wish to pay this fee, it's recommended to remove `budgetvotemode=suggest` to avoid paying future finalization fees. The fee is taken for each and every budget block.
+2880 blocks (about 48h) before the payout block is reached, a fee of 25 XLN to finalize the proposal is taken but for this to happen a wallet on the lunarium network needs to add `budgetvotemode=suggest` to `lunarium.conf`. This wallet also needs to be open, unlocked and have the 25 XLN for the finalization fee (+ minor transcation fee). If this fee can't be taken the proposal will fail and not pay out! Unless you have future budget blocks where you wish to pay this fee, it's recommended to remove `budgetvotemode=suggest` to avoid paying future finalization fees. The fee is taken for each and every budget block.
 
 ```
 "main" : {
