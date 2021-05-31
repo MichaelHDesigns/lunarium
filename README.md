@@ -9,10 +9,10 @@ Lunarium is a cutting edge cryptocurrency, with many features not available in m
 
 ## Links ##
 
-Webpage: https://www.lunarium.io/  
+Webpage: http://xlunarium.org 
 Twitter: https://twitter.com/lunariumcoin/  
 Discord: https://discord.gg/4nFZeJr  
-Explorer: http://explorer.lunarium.io/  
+Explorer: https://explorer.xlunarium.org/
 
 ## Coin Specs ##
 <table>
