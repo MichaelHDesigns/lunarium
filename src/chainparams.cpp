@@ -187,11 +187,9 @@ public:
         assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
         assert(genesis.hashMerkleRoot == uint256("0x1c2771797cba9b90fb491e2fa45c2b140fe0575e0cca97aa8c0adca84e9e028e"));
 
-        vSeeds.push_back(CDNSSeedData("0", "seed1.lunarium.io"));
-        vSeeds.push_back(CDNSSeedData("1", "seed2.lunarium.io"));
-        vSeeds.push_back(CDNSSeedData("2", "seed3.lunarium.io"));
-        vSeeds.push_back(CDNSSeedData("3", "seed4.lunarium.io"));
-        vSeeds.push_back(CDNSSeedData("4", "seed5.lunarium.io"));
+        vSeeds.push_back(CDNSSeedData("vps01", "seed1.explorerxln.com"));
+        vSeeds.push_back(CDNSSeedData("vps02", "seed2.explorerxln.com"));
+        vSeeds.push_back(CDNSSeedData("vps03", "seed3.explorerxln.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
