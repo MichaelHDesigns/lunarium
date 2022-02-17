@@ -55,15 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (      0, uint256("180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"))
-	(   3001, uint256("d2bd76d2068dd66e0304b3b34924c9bbf00865087d8dbf55854f7ca2e255670b")) // first block after POW end
-    (   7474, uint256("34847b79125d8907c6fb5abf04038b56b1bf7e84100740ee85202b8676bef204"))
-    (  15000, uint256("e524e078ca586d59f0378743e3a5e40782b5169b6028ff2e35557b9d8794695f"))
-	( 100003, uint256("a8043aaa9ff978eb688550a935fb59f15fe3c265f1e3aa8b622cc8e40a9bc878"))
-	( 500006, uint256("25fd1ddbadffd66102566f589a82ff914005b2ede38815b9bcc88f5a638e94a7"))
-	(1000004, uint256("c4bbb02590f23aff5d687ac6b83297aa3222ca342febe2dd91d8dee790bef84d"))
-	(1500010, uint256("b0a1b35373fbb159f08818397a6bdb200a1d19cf1fc25cabc0fa0871285a366e"))
-	(1687581, uint256("5b0037c15a22e692c8b57840b8e191aa2b0ee71fd0155fd8aa86f779ef9f9cb5"));
+    (      0, uint256("180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -122,25 +114,25 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x91;
-        pchMessageStart[1] = 0xc4;
-        pchMessageStart[2] = 0xfd;
-        pchMessageStart[3] = 0xe9;
-        nDefaultPort = 44071;
+        pchMessageStart[0] = 0xa9;
+        pchMessageStart[1] = 0xc6;
+        pchMessageStart[2] = 0xd3;
+        pchMessageStart[3] = 0xea;
+        nDefaultPort = 61050;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // Lunarium: 1 day
-        nTargetSpacing = 1 * 60;  // Lunarium: 1 minute
-        nMaturity = 100;
+        nTargetTimespan = 30; // Lunarium: 1 day
+        nTargetSpacing = 30;  // Lunarium: 1 minute
+        nMaturity = 6;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 1000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 3000;
+        nLastPOWBlock = 100;
         nZerocoinStartHeight = 200; // Chain moving at normal pace at this block.
 
         /**
@@ -187,19 +179,18 @@ public:
         assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
         assert(genesis.hashMerkleRoot == uint256("0x1c2771797cba9b90fb491e2fa45c2b140fe0575e0cca97aa8c0adca84e9e028e"));
 
-        vSeeds.push_back(CDNSSeedData("vps01", "seed1.explorerxln.com"));
-        vSeeds.push_back(CDNSSeedData("vps02", "seed2.explorerxln.com"));
-        vSeeds.push_back(CDNSSeedData("vps03", "seed3.explorerxln.com"));
+     //   vSeeds.push_back(CDNSSeedData("vps01", "seed1.explorerxln.com"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 48);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 26);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x02)(0x86).convert_to_container<std::vector<unsigned char> >();
 
-        bech32_hrp = "xln";
+        bech32_hrp = "brs";
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
