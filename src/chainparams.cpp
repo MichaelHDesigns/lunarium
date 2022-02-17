@@ -55,31 +55,31 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (      0, uint256("180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
+    (      0, uint256("0000086041e4ff304ec6349b4270dc53a354b5a44f3216278aae188fe862ad35"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-	1637412712, // * UNIX timestamp of last checkpoint block
-	3480164,    // * total number of transactions between genesis and last checkpoint
+	1644193942, // * UNIX timestamp of last checkpoint block
+	0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
-    1500        // * estimated number of transactions per day after checkpoint
+    0        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
+    boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1533640145,
+    1644193942,
     0,
-    250};
+    0};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
+    boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1533640145,
+    1644193942,
     0,
-    100};
+    0};
 
 libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params() const
 {
@@ -145,19 +145,20 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Welcome to the weirdly wonderful world of crypto-art";
+        const char* pszTimestamp = "Devilking6105 says love life and inspire others";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].SetEmpty();
+        txNew.vout[0].nValue = 5000 * COIN;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("047eac5e017985914ae18805ce5f3b29b79647db903a99c0244295a83081c567b3ea82238ab1e8bbc26c91578321bd1136cc4385df4572b703d16623d50a3a819e") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1533640145;
+        genesis.nTime = 1644193942;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1;
+        genesis.nNonce = 22225380;
 
         // Uncomment the following block of code if you want to create a genesis block by running ./lunariumd.
         // Make sure to create a new psztimestamp and set your nonce to 0 before compiling, also comment out the assert lines below this block!
@@ -176,8 +177,8 @@ public:
         printf("genesis.nTime %d\n", genesis.nTime);*/
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
-        assert(genesis.hashMerkleRoot == uint256("0x1c2771797cba9b90fb491e2fa45c2b140fe0575e0cca97aa8c0adca84e9e028e"));
+        assert(hashGenesisBlock == uint256("0x0000086041e4ff304ec6349b4270dc53a354b5a44f3216278aae188fe862ad35"));
+        assert(genesis.hashMerkleRoot == uint256("0xa233372d6684ae95332b618af7a8df6a8cd5e10391ed4ab8d22f738920916727"));
 
      //   vSeeds.push_back(CDNSSeedData("vps01", "seed1.explorerxln.com"));
 
