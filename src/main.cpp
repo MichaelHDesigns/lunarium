@@ -95,7 +95,7 @@ bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
 unsigned int nBytesPerSigOp = DEFAULT_BYTES_PER_SIGOP;
 
-unsigned int nStakeMinAge = 24 * 60 * 60; // 24 hours
+unsigned int nStakeMinAge = 1 * 60 * 60; // 1 hours
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in uphr) are considered zero fee (for relaying and mining)
@@ -2161,31 +2161,31 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     if (nHeight == 0) {
-        return 5200000 * COIN; //5.2M premine
+        return 20000000 * COIN; //20M premine
     } else if (nHeight > 0 && nHeight <= 30000) { // end of swap period
-        return 0.001 * COIN;
+        return 5000 * COIN;
     } else if (nHeight > 30000 && nHeight <= 555602) { 
-        return 10 * COIN;
+        return 4500 * COIN;
     } else if (nHeight > 555602 && nHeight <= 1081203) { 
-        return 9 * COIN;
+        return 4000 * COIN;
     } else if (nHeight > 1081203 && nHeight <= 1606804) {
-        return 8 * COIN;
+        return 3500 * COIN;
     } else if (nHeight > 1606804 && nHeight <= 2132405) { 
-        return 7 * COIN;
+        return 3000 * COIN;
     } else if (nHeight > 2132405 && nHeight <= 2658006) { 
-        return 6 * COIN;
+        return 2500 * COIN;
     } else if (nHeight > 2658006 && nHeight <= 3183607) { 
-        return 5 * COIN;
+        return 2000 * COIN;
     } else if (nHeight > 3183607 && nHeight <= 3709208) {
-        return 4 * COIN;
+        return 1500 * COIN;
     } else {
-        return 3 * COIN;
+        return 1000 * COIN;
     }
 }
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = blockValue * 0.7; // 70% of rewards to MN
+    int64_t ret = blockValue * 0.5; // 50% of rewards to MN
     return ret;
 }
 
