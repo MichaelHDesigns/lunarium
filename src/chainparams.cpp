@@ -263,8 +263,8 @@ public:
         nZerocoinLastOldParams = 100000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1533640145;
-        genesis.nNonce = 1;
+        genesis.nTime = 1644193942;
+        genesis.nNonce = 22225380;
 
         // Uncomment for genesis block creation
         /*printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
@@ -284,13 +284,13 @@ public:
         }*/
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
+        assert(hashGenesisBlock == uint256("0x0000086041e4ff304ec6349b4270dc53a354b5a44f3216278aae188fe862ad35"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet lunarium addresses start with 'x' or 'y'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet lunarium script addresses start with '8' or '9'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Testnet lunarium addresses start with 'x' or 'y'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 81);  // Testnet lunarium script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         // Testnet lunarium BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
@@ -299,7 +299,7 @@ public:
         // Testnet lunarium BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x01)(0x00)(0x00)(0x80).convert_to_container<std::vector<unsigned char> >();
 
-        bech32_hrp = "txln";
+        bech32_hrp = "tbrs";
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
@@ -346,9 +346,9 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Lunarium: 1 day
         nTargetSpacing = 1 * 60;        // Lunarium: 1 minutes
         bnProofOfWorkLimit = 0x207fffff; //~uint256(0) >> 1;
-        genesis.nTime = 1533640145;
+        genesis.nTime = 1644193942;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1;
+        genesis.nNonce = 22225380;
         nMaturity = 0;
         nLastPOWBlock = 999999999; // PoS complicates Regtest because of timing issues
         nZerocoinLastOldParams = 499;
@@ -376,9 +376,11 @@ public:
           printf("genesis.nNonce %d\n", genesis.nNonce);
         }*/
 
-        assert(hashGenesisBlock == uint256("0x180b567eddde3001577f12de7d94c0e9a2db6121c9604d12d6ffe10cd54853fe"));
+        hashGenesisBlock = genesis.GetHash();
+        assert(hashGenesisBlock == uint256("0x0000086041e4ff304ec6349b4270dc53a354b5a44f3216278aae188fe862ad35"));
+        //assert(hashGenesisBlock == uint256("0x1a7470545e23b0d3aa579386d55278488a34a98352d1f785c1706b760bbf0688"));
 
-        bech32_hrp = "xlnrt";
+        bech32_hrp = "brsrt";
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
