@@ -129,11 +129,11 @@ public:
         nTargetSpacing = 30;  // Lunarium: 1 minute
         nMaturity = 6;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 1000000000 * COIN;
+        nMaxMoneyOut = 100000000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 100;
-        nZerocoinStartHeight = 200; // Chain moving at normal pace at this block.
+        nZerocoinStartHeight = 100; // Chain moving at normal pace at this block.
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
